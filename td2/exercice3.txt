@@ -1,0 +1,30 @@
+>>> x=3.5
+>>> type(x)
+<type 'float'>
+>>> int(x)
+3
+>>> type(x)
+<type 'float'>
+>>> y=-10.2
+>>> abs(y)
+10.2
+>>> print(y)
+-10.2
+>>> y=abs(y)
+>>> print(y)
+10.2
+>>> y=123.3456
+>>> round(y)
+123.0
+>>> round(y,2)
+123.35
+>>> x=123.4567890123
+>>> from math import *
+>>> trunc(x)
+123
+>>> floor(x)
+123.0
+>>> ceil(x)
+124.0
+>>> print(x)
+123.456789012
