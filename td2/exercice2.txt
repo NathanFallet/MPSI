@@ -1,0 +1,56 @@
+>>> x=3
+>>> print (x)
+3
+>>> y=8
+>>> print (x+y)
+11
+>>> z=x+y
+>>> print (z)
+11
+>>> z=2
+>>> print (z)
+2
+>>> res = x + y*z     
+>>> print(res)
+19
+>>> res = x*y - z
+>>> print(res)
+22
+>>> res = x - y**z
+>>> print(res)
+-61
+>>> res = x + y % z
+>>> print (res)
+3
+>>> res = x / y*z
+>>> print(res)
+0
+>>> res = float(x) / y*z
+>>> print(res)
+0.75
+>>> x=3
+>>> y=8
+>>> z=x+y
+>>> z
+11
+>>> print (z)
+11
+>>> print ("resultat = z ")
+resultat = z 
+>>> print ("resultat = " +z)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: cannot concatenate 'str' and 'int' objects
+>>> print ("resultat = " + str(z))
+resultat = 11
+>>> print ("resultat = ",z)
+('resultat = ', 11)
+>>> print("resultat =%d "% z)
+resultat =11 
+>>> print("%d +%d =%d"% (x,y,z))
+3 +8 =11
+>>> resultat=2.5
+>>> print("resultat=%d"% resultat)
+resultat=2
+>>> print("resultat=%f"% resultat)
+resultat=2.500000
