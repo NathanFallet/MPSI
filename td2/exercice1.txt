@@ -1,0 +1,72 @@
+>>> 2
+2
+>>> 2.5
+2.5
+>>> 2,5
+(2, 5)
+>>> 2+3
+5
+>>> 2<3
+True
+>>> (2<3)
+True
+>>> 2==3
+False
+>>> 2=3
+  File "<stdin>", line 1
+SyntaxError: can't assign to literal
+>>> 2==(10/5)
+True
+>>> 10/3
+3
+>>> 10%3
+1
+>>> 10.0/3
+3.3333333333333335
+>>> float(10)/3
+3.3333333333333335
+>>> toto
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'toto' is not defined
+>>> "toto"
+'toto'
+>>> "toto"2
+  File "<stdin>", line 1
+    "toto"2
+          ^
+SyntaxError: invalid syntax
+>>> "toto"+2
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: cannot concatenate 'str' and 'int' objects
+>>> "toto"+ »"2"
+  File "<stdin>", line 1
+    "toto"+ »"2"
+            ^
+SyntaxError: invalid syntax
+>>> "t"< "T"
+False
+>>> "toto" < "Truc "
+False
+>>> false
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'false' is not defined
+>>> False
+False
+>>> True and False
+False
+>>> Not True
+  File "<stdin>", line 1
+    Not True
+           ^
+SyntaxError: invalid syntax
+>>> (2<3) and (3<4)
+True
+>>> (2<3) and False
+False
+>>> "toto" and (2<3)
+True
+>>> ("t" < "T") and (2<3)
+False
