@@ -1,5 +1,5 @@
 # On demande le nombre
-a = input("Donnez un nombre : ")
+a = int(input("Donnez un nombre : "))
 
 # On cree une liste vide
 d = []

@@ -15,15 +15,15 @@ print(conversion(1, 30, 15))
 
 # La premiere
 print("Horaire 1 :")
-h1 = input("h = ")
-m1 = input("m = ")
-s1 = input("s = ")
+h1 = int(input("h = "))
+m1 = int(input("m = "))
+s1 = int(input("s = "))
 
 # La deuxieme
 print("Horaire 2 :")
-h2 = input("h = ")
-m2 = input("m = ")
-s2 = input("s = ")
+h2 = int(input("h = "))
+m2 = int(input("m = "))
+s2 = int(input("s = "))
 
 # On converti
 conversion1 = conversion(h1, m1, s1)
