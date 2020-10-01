@@ -1,6 +1,3 @@
-# On importe les fonctions maths
-from math import round
-
 # Demander la taille
 t = float(input("Donnez votre taille en metre : "))
 
