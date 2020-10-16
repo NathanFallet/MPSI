@@ -1,10 +1,11 @@
 # On importe les fonctions
 from random import randint
 
-# On défini la fonction de jeu
+# On définit la fonction de jeu
 def nombreMysterieux(nombre):
     # On initialise le nombre d'essais
     essais = 1
+    # On utilise une boucle infinie dont on sortira avec return
     while True:
         # On demande un nombre
         reponse = int(input("Entrez un nombre : "))
