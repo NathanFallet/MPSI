@@ -3,7 +3,7 @@
 # Définition de la fonction insertion
 def insertion(liste, rang, élément):
     # Si on est en dehors de la liste, alors on indique qu'il y a une erreur
-    if rang >= len(liste):
+    if abs(rang) > len(liste):
         raise IndexError("Index out of range")
 
     # On retourne la liste de base avec le nouvel élément
@@ -15,9 +15,9 @@ def miroir(liste):
     # On initialise une liste vide
     sortie = []
     # On parcours la liste à l'envers, grâce à reversed()
-    for i in reversed(range(len(liste))):
+    for i in range(len(liste)):
         # On ajoute les éléments de la liste initiale à la nouvelle liste
-        sortie.append(liste[i])
+        sortie.append(liste[-i])
     
     # On retourne la nouvelle liste
     return sortie
@@ -27,6 +27,8 @@ def miroir(liste):
 def coupe(liste, rang1, rang2):
     # On initialise un booléen
     retourné = False
+    if abs(rang1) > len(liste) or abs(rang2) > len(liste):
+        raise IndexError
     # On vérifie que les rangs soit dans le bon ordre
     if rang1 > rang2:
         # Sinon, on utilise un double assignement pour échanger les valeurs, et changer notre booléen
@@ -42,7 +44,7 @@ def coupe(liste, rang1, rang2):
     
     # Si notre booléen est vrai, on retourne la liste
     if retourné:
-        sortie.reverse()
+        sortie = miroir(sortie)
     
     # On retourne la nouvelle liste
     return sortie
