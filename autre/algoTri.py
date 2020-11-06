@@ -60,6 +60,34 @@ def swapSort(toSort):
     # On retourne la liste triée
     return toSortCopy
 
+# On définit un troisième algorithme qui supprime tout élément non conforme au tri
+# Note, ce n'est pas un vrai algorithme de tri, mais une blague plus qu'autre chose
+def stalinSort(toSort):
+    # On effectue une copie de la liste, pour éviter de changer la liste originelle
+    toSortCopy = toSort.copy()
+
+    # On initialise la valeur précédente à l'infini négatif, car la valeur précédente n'est pas forcément la valeur i-1
+    previous = -inf
+    # On initialise une liste vide des éléments à supprimer
+    toDelete = []
+    # On parcours la liste à trier
+    for i in range(len(toSortCopy)):
+        # Si l'élément est conforme, il devient le nouveau "modéle"
+        if previous <= toSortCopy[i]:
+            previous = toSortCopy[i]
+        # Sinon, il est mis sur la liste de suppresion
+        else:
+            toDelete.append(i)
+    
+    # On inverse la liste, afin que la suppresion des éléments ne perturbe pas la place des autres éléments
+    toDelete.reverse()
+    # On supprime tout les éléments nou-conformes
+    for i in toDelete:
+        del toSortCopy[i]
+    
+    # On retourne la liste "triée"
+    return toSortCopy
+
 
 # On créer une liste avec tout les éléments de 1 à 200
 listToSortCopy = list(range(1, 201))
@@ -79,3 +107,7 @@ print()
 print(swapSort(listToSortCopy))
 print()
 print(swapSort(listToSortCopyRepeat))
+print()
+print(stalinSort(listToSortCopy))
+print()
+print(stalinSort(listToSortCopyRepeat))
