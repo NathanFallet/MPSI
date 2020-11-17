@@ -60,6 +60,7 @@ def swapSort(toSort):
     # On retourne la liste triée
     return toSortCopy
 
+
 # On définit un troisième algorithme qui supprime tout élément non conforme au tri
 # Note, ce n'est pas un vrai algorithme de tri, mais une blague plus qu'autre chose
 def stalinSort(toSort):
@@ -81,7 +82,7 @@ def stalinSort(toSort):
     
     # On inverse la liste, afin que la suppresion des éléments ne perturbe pas la place des autres éléments
     toDelete.reverse()
-    # On supprime tout les éléments nou-conformes
+    # On supprime tout les éléments non-conformes
     for i in toDelete:
         del toSortCopy[i]
     
@@ -90,24 +91,24 @@ def stalinSort(toSort):
 
 
 # On créer une liste avec tout les éléments de 1 à 200
-listToSortCopy = list(range(1, 201))
+listToSort = [*range(1, 201)]
 # Et on la mélange
-shuffle(listToSortCopy)
+shuffle(listToSort)
 
 # On créer une liste avec tout les éléments de 1 à 100, deux fois
-listToSortCopyRepeat = list(range(1, 101)) * 2
+listToSortRepeat = [*range(1, 101)] * 2
 # Et on la mélange
-shuffle(listToSortCopyRepeat)
+shuffle(listToSortRepeat)
 
 # On lance ensuite les algorithme de tri et affiche les réponses
-print(onePerOne(listToSortCopy))
+print(onePerOne(listToSort))
 print()
-print(onePerOne(listToSortCopyRepeat))
+print(onePerOne(listToSortRepeat))
 print()
-print(swapSort(listToSortCopy))
+print(swapSort(listToSort))
 print()
-print(swapSort(listToSortCopyRepeat))
+print(swapSort(listToSortRepeat))
 print()
-print(stalinSort(listToSortCopy))
+print(stalinSort(listToSort))
 print()
-print(stalinSort(listToSortCopyRepeat))
+print(stalinSort(listToSortRepeat))

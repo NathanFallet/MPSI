@@ -3,7 +3,7 @@ n = int(input("Entrez un nombre : "))
 
 # On initialise une liste
 list = []
-#On répète tant que n est different 
+# On répète tant que n est different 
 while n != 0:
     # On ajoute le chiffre à la liste
     list.append(n % 10)
