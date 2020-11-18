@@ -1,4 +1,4 @@
-""" 1) Prendre tout les éléments d'une liste suivant une conditions """
+""" 1) Prendre tout les éléments d'une liste suivant une condition """
 # [i for i in liste if condition]
 
 # Exemple : On ne prend que les multiples de 3
@@ -25,14 +25,14 @@ print([*range(11, 20+1)])
 # Exemple : On prend 10i si i est pair et 2i si i est impair
 print("\nExemple du 3a) : ")
 
-liste = [*range(1, 20+1)]
+liste = [*range(1, 10+1)]
 print([((10 * i) if (i % 2 == 0) else (2 * i)) for i in liste]) # Note : les parenthèses sont optionnelles
 
 
 # Exemple : On divise par deux les nombres pairs, et ne fait rien au reste
 print("\nExemple du 3b) : ")
 
-liste = [*range(1, 20+1)]
+liste = [*range(1, 10+1)]
 print([((i // 2) if (i % 2 == 0) else i) for i in liste]) # Note : les parenthèses sont optionnelles
 
 
@@ -45,8 +45,14 @@ print("\nExemple du 4a) : ")
 
 a = 3
 b = 4
-a,b = b,a
-print(a, b)
+print("a =", a)
+print("b =", b)
+
+print("On échange")
+a, b = b, a
+
+print("a =", a)
+print("b =", b)
 
 
 # Exemple : On échange la première et dernière valeur d'une liste
