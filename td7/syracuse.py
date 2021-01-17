@@ -11,3 +11,12 @@ def zero_syracuse(m):
     while syracuse(m, n) != 1: # Tant que u_n != 0
         n += 1 # On tente pour u_n+1
     return n # On renvoie n
+
+def max_syracuse(m):
+    Max, n, curr = 0, 0, syracuse(m, 0) # On initialise des variables pour garder en mémoir le maximum
+    while curr != 1: # Tant que la suite n'est pas finie
+        if curr > Max: # Si on a un nouveau maximum
+            max = curr # On le prend
+        n += 1 # Puis on passe à l'itération suivante
+        curr = syracuse(m, n)
+    return Max # On renvoie le maximum final
