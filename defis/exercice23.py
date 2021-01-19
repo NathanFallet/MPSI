@@ -1,6 +1,8 @@
+from typing import List
+
 """ Recursive Function """
 
-def getParent(sequence, units, number):
+def getParent(sequence: List[int], units: int, number: int) -> bool:
     """ Finds all of a number's parents """
 
     # On parcours toute la liste

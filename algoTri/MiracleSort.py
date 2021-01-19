@@ -1,9 +1,10 @@
 from random import shuffle
+from typing import Any, List
 
 # On définit une fonction MiracleSort
 # Cet algorithme attend que la liste se trie toute seule.
 # Purement humoristique, c'est algorithme de tri le plus inefficace
-def MiracleSort(toSort):
+def MiracleSort(toSort: List[Any]) -> List[Any]:
      # On défini une fonction auxiliaire IsSorted
     def IsSorted(inList):
         # Si la liste est trié, son minimum est le premier nombre

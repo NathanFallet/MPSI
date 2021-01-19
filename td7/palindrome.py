@@ -1,4 +1,4 @@
-def is_palindrome(str):
+def is_palindrome(str: str) -> bool:
     if len(str) <= 1: # Si on a une seule lettre ou si vide, alors c'est un palindrome
         return True
     # On sépare en première, le reste et dernière lettre

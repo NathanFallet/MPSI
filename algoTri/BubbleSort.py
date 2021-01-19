@@ -1,9 +1,10 @@
 from random import shuffle
+from typing import List
 
 # On définit une fonction BubbleSort
 # Cet algorithme marche en comparant les éléments voisins deux à deux et en échangeant leurs places si besoin
 # Cet type de tri possède une bonne efficacité et est constant. Il trie aussi bien petite et grandes listes
-def BubbleSort(toSort):
+def BubbleSort(toSort: List) -> List:
     # On effectue une copie de la liste, pour éviter de changer la liste originelle
     toSortCopy = toSort.copy()
 

@@ -1,9 +1,10 @@
 from random import shuffle
+from typing import List
 
 # On définit une fonction InsertionSort
 # Cet algorithme créer une nouvelle liste, et place aux bonnes places les éléments de la liste mère, un à un
 # Pas très efficace pour des listes entièrement aléatoires, mais l'un des plus efficace pour les listes presque rangées
-def InsertionSort(toSort):
+def InsertionSort(toSort: List) -> List:
     # On commence par créer la liste secondaire, et à l'initialiser à la première valeur de la liste mère
     output = [toSort[0]]
 
