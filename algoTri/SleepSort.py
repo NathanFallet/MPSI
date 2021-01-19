@@ -2,12 +2,13 @@
 from time import sleep
 from threading import Timer
 from random import shuffle
+from typing import Any, List
 
 # On définit une fonction SleepSort
 # Cette fonction marche car tout les éléments 1 sont ajoutés à la liste résultat après 1s, tout les éléments 2 après 2s ... (pour une précision de 1)
 # Vu que l'éxecution est faite en parralèle, les éléments plus petits arrivent en premiers dans la liste, et donc prennent les premières places
 # Algorithme de tri purement humoristique, à ne pas utiliser dans un programme sérieux ! (Surtout qu'il n'est pas 100% précis ...)
-def SleepSort(toSort, precision):
+def SleepSort(toSort: List[Any], precision: float) -> List[Any]:
     # Définition d'une liste résultat vide
     result = []
     # Définition d'un fonction auxiliaire à la fonction

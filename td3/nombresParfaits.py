@@ -5,7 +5,7 @@ from math import isqrt
 x = int(input("Entrez un nombre : "))
 
 # On met en marche la boucle
-for n in  range(6, x):
+for n in range(6, x):
     # On prépare la liste des diviseurs
     diviseurs = [1]
     # On obtient le restant de la liste

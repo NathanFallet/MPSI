@@ -1,9 +1,10 @@
 from random import shuffle
+from typing import Any, List
 
 # On définit une fonction SelectionSort
 # Cet algorithme trouve le minimum de la liste, et le place à la première position, il continue ensuite en ignorant le premier élément
 # Cet algorithme, malgrès sa faible efficacité, prend toujours le même temps pour trier une liste de taille n
-def SelectionSort(toSort):
+def SelectionSort(toSort: List[Any]) -> List[Any]:
     # On effectue une copie de la liste, pour éviter de changer la liste originelle
     toSortCopy = toSort.copy()
 

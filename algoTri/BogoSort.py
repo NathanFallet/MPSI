@@ -1,10 +1,11 @@
 # On importe le module nécessaire
 from random import shuffle
+from typing import Any, List
 
 # On définie un fonction BogoSort
 # Cet algorithme marche de la manière suivante, si la liste n'est pas triée, on la mélange
 # Bien évidement, cet algoithme est une blague, et prend généralement n! itérations, avec n la taille de la liste
-def BogoSort(toSort):
+def BogoSort(toSort: List[Any]) -> List[Any]:
 
     # On défini une fonction auxiliaire IsSorted
     def IsSorted(inList):

@@ -1,4 +1,5 @@
 # On importe matplotlib, ainsi que la fonction choice our les couleurs
+from typing import Tuple
 import matplotlib.pyplot as mplpp
 from random import choice
 
@@ -8,7 +9,7 @@ mplpp.axis("equal")
 
 
 # On définit la fonction spirale pour créer la spirale
-def spiral(origin, radius, n):
+def spiral(origin: Tuple[float, float], radius: float, amount: int):
     # On définit une liste de couleurs
     colorList = ["xkcd:tan", "xkcd:aqua", "xkcd:lime", "xkcd:gold", "xkcd:light red",
                 "xkcd:steel blue", "xkcd:grass", "xkcd:orchid", "xkcd:emerald", "xkcd:pastel pink",
@@ -21,7 +22,7 @@ def spiral(origin, radius, n):
     yList = [origin[1] + radius] + 2 * [origin[1] - radius] + 2 * [origin[1] + radius]
 
     # On répète n fois
-    for _ in range(n):
+    for _ in range(amount):
         # On dessine un carré vide avec la fonction plot()
         mplpp.plot(xList, yList, choice(colorList))
 

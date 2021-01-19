@@ -1,9 +1,10 @@
 from random import shuffle
+from typing import Any, List
 
 # On définit une fonction StalinSort
 # Cet algorithme fonctionne en supprimant tout les éléments non conformes (d'où le nom).
 # Ceci n'est pas un véritable alogrithme de tri, car l'intégrité de la liste n'est pas conservée. C'est purement une blague.
-def StalinSort(toSort):
+def StalinSort(toSort: List[Any]) -> List[Any]:
     # On effectue une copie de la liste, pour éviter de changer la liste originelle
     toSortCopy = toSort.copy()
 

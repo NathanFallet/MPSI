@@ -3,13 +3,13 @@ from threading import Thread
 from time import sleep
 
 # On définit une première boucle qui affiche "A" toutes les 2 secondes
-def boucle1():
+def boucle1() -> None:
     while True:
         print("A")
         sleep(2)
 
 # On définit une seconde boucle qui affiche "B" toutes les 3 secondes
-def boucle2():
+def boucle2() -> None:
     while True:
         print("B")
         sleep(3)
