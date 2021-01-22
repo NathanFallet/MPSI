@@ -13,7 +13,7 @@ def zero_syracuse(m: int) -> int:
     return n # On renvoie n
 
 def max_syracuse(m: int) -> int:
-    Max, n, curr = 0, 0, syracuse(m, 0) # On initialise des variables pour garder en mémoir le maximum
+    Max, n, curr = 0, 0, syracuse(m, 0) # On initialise des variables pour garder en mémoire le maximum
     while curr != 1: # Tant que la suite n'est pas finie
         if curr > Max: # Si on a un nouveau maximum
             Max = curr # On le prend
