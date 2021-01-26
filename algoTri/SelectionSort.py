@@ -1,4 +1,5 @@
 from random import shuffle
+from time import perf_counter
 from typing import Any, List
 
 # On définit une fonction SelectionSort
@@ -29,5 +30,9 @@ def SelectionSort(toSort: List[Any]) -> List[Any]:
 # On teste la fonction
 liste = [*range(100)]
 shuffle(liste)
-print(liste)
-print(SelectionSort(liste))
+#print(liste)
+t0 = perf_counter()
+a = SelectionSort(liste)
+t1 = perf_counter()
+print(t1 - t0)
+#print(a)
