@@ -52,7 +52,7 @@ def MergeSort(toSort: List[Any]) -> List[Any]:
     return toSort
 
 # On teste la fonction
-liste = [*range(100)]
+liste = [*range(100000)]
 shuffle(liste)
 #print(liste)
 t0 = perf_counter()
