@@ -16,6 +16,8 @@ def QuickSort(toSort: List[Any]) -> Any:
         pivot = medOfThree(toSort, medOfThree(toSort, low1, med1, high1), medOfThree(toSort, high1+1, med2, high2), medOfThree(toSort, high2+1, med3, high3))
         
 
+
+
 a = [*range(100)]
 shuffle(a)
 print(QuickSort(a))

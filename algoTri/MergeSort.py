@@ -8,8 +8,8 @@ from typing import Any, List
 # L'un des algorithme les plus rapide, seul probléme, c'est celui qui prend le plus de place sur la RAM pendant son execution
 def MergeSort(toSort: List[Any]) -> List[Any]:
     emptyList = []
-    # On verifie que la liste d'entrée contient au moins deux éléments
-    if len(toSort) > 1:
+    # On verifie que la liste d'entrée contient au moins trois éléments
+    if len(toSort) > 2:
         # On prend le millieu de la liste, dans le cas d'une taille impaire, la liste de droite sera plus grande
         midPoint = len(toSort) // 2
         # On prend les deux listes correspondants à la séparation en deux, et on les trie avec un MergeSort
@@ -24,6 +24,7 @@ def MergeSort(toSort: List[Any]) -> List[Any]:
 
         # On définit une liste vide pour trier les deux listes entre elles
         output = []
+        # Même chose pour la fonction append
         append = output.append
         # Pour tout les éléments des deux listes
         for _ in range(len(list1) + len(list2)):
@@ -47,12 +48,19 @@ def MergeSort(toSort: List[Any]) -> List[Any]:
         
         # On fini par retourner la liste de sortie
         return output
-    
-    # Sinon, on retourne l'entrée sans rien faire, afin d'éviter d'avoir une recursion infinie
+
+    # On gère le cas à deux éléments
+    if len(toSort) == 2:
+        # Si le deuxième élément et plus petit que le premier
+        if toSort[1] < toSort[0]:
+            # On les change de place
+            toSort[0], toSort[1] = toSort[1], toSort[0]
+
+    # On retourne l'entrée sans rien faire, afin d'éviter d'avoir une recursion infinie
     return toSort
 
 # On teste la fonction
-liste = [*range(100000)]
+liste = [*range(1000)]
 shuffle(liste)
 #print(liste)
 t0 = perf_counter()
