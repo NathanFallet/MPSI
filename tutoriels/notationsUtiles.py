@@ -58,6 +58,6 @@ print("b =", b)
 # Exemple : On échange la première et dernière valeur d'une liste
 print("\nExemple du 4b) : ")
 
-liste = [*range(1, 10+1)]
+liste = [*range(1, 11)]
 liste[0], liste[-1] = liste[-1], liste[0]
 print(liste)

@@ -1,3 +1,4 @@
+from random import shuffle
 from typing import Any, Tuple
 
 def min_max(l: list[Any], a: int, b: int) -> Tuple[int, int]:
@@ -21,7 +22,18 @@ def permute(l: list[Any], a: int, b: int) -> None:
 def tri(l: list[Any]) -> list:
     for i in range(len(l)//2): # Pour une moitié de liste (on traite les éléments 2 par 2)
         Min, Max = min_max(l, i, -1-i) # On cherche le min et le max
-        permute(l, i, Min) # On met le min à sa place
-        permute(l, -1-i, Max) # On met le max à sa place
+        if Min == len(l)-1-i and Max == i:
+            l[Min], l[Max] = l[Max], l[Min]
+        elif Min == len(l)-1-i:
+            l[Min], l[i] = l[i], l[Min]
+            l[Max], l[len(l)-1-i] = l[len(l)-1-i], l[Max]
+        else:
+            l[Max], l[len(l)-1-i] = l[len(l)-1-i], l[Max]
+            l[Min], l[i] = l[i], l[Min]
     
     return l # On retourne la liste triée
+
+liste = [*range(100)]
+shuffle(liste)
+tri(liste)
+print(liste)

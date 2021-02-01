@@ -3,11 +3,12 @@
 Dans ce dossier se trouve de multiples exemples d'algorithmes de tri, chacun ayant des utilités différentes :
 Note: un algorithme de tri stable est un algorithme ne modifiant pas l'ordre des valeurs égales
 
-- Bubble Sort -> Algorithme très simple à implémenter, très peu efficace mais stable
+- Bubble Sort -> Algorithme très simple à implémenter, très peu efficace mais stable, il a plus le rôle d'un tutoriel
 - Insertion Sort -> Peu efficace en général, mais stable, très rapide sur les listes presques triées
 - Selection Sort -> Peu efficace en général, mais est stable et n'a pas besoin d'espace supplementaire
 - Merge Sort -> Très efficace, stable et très répandu, mais à besoin de beaucoup de RAM
   - (une variation de cet algorithme est utilisé par la fonction sort() de Python)
+- Quick Sort -> Portant bien son nom, c'est l'algorithme de tri le plus rapide, mais il est très lent avec les éléments identiques
 
 Il y a aussi quelques algorithmes humoristiques :
 
