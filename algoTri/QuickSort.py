@@ -71,7 +71,7 @@ def QuickSort(toSort: List[Any]) -> List[Any]:
     return toSort
 
 # On teste la fonction
-liste = [*range(100)]
+liste = [*range(10000)]
 shuffle(liste)
 # print(liste)
 t0 = perf_counter()

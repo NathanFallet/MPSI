@@ -8,10 +8,11 @@ from typing import Any, List
 # L'un des algorithme les plus rapide, seul probléme, c'est celui qui prend le plus de place sur la RAM pendant son execution
 def MergeSort(toSort: List[Any]) -> List[Any]:
     emptyList = []
+    n = len(toSort)
     # On verifie que la liste d'entrée contient au moins trois éléments
-    if len(toSort) > 2:
+    if n > 2:
         # On prend le millieu de la liste, dans le cas d'une taille impaire, la liste de droite sera plus grande
-        midPoint = len(toSort) // 2
+        midPoint = n // 2
         # On prend les deux listes correspondants à la séparation en deux, et on les trie avec un MergeSort
         list1, list2 = MergeSort(toSort[:midPoint]), MergeSort(toSort[midPoint:])
         # Les deux listes sont donc maintenant triées indépendamment les unes des autres
@@ -28,13 +29,15 @@ def MergeSort(toSort: List[Any]) -> List[Any]:
         append = output.append
         # Pour tout les éléments des deux listes
         for _ in range(len(list1) + len(list2)):
-            # Si la première liste est vide, alors on prend une valeur dans la deuxième
+            # Si la première liste est vide, alors on ajoute les valeurs de la deuxième
             if list1 == emptyList:
-                append(pop2())
+                output.extend(list2)
+                break
             
-            # Si la deuxième liste est vide, alors on prend une valeur dans la première
+            # Si la deuxième liste est vide, alors on ajoute les valeurs de la première
             elif list2 == emptyList:
-                append(pop1())
+                output.extend(list1)
+                break
 
             # Si le dernier élément de la première liste est plus petit que le dernier élément de la deuxième liste
             elif list1[-1] < list2[-1]:
@@ -50,7 +53,7 @@ def MergeSort(toSort: List[Any]) -> List[Any]:
         return output
 
     # On gère le cas à deux éléments
-    if len(toSort) == 2:
+    if n == 2:
         # Si le deuxième élément et plus petit que le premier
         if toSort[1] < toSort[0]:
             # On les change de place
@@ -60,7 +63,7 @@ def MergeSort(toSort: List[Any]) -> List[Any]:
     return toSort
 
 # On teste la fonction
-liste = [*range(100)]
+liste = [*range(10000)]
 shuffle(liste)
 #print(liste)
 t0 = perf_counter()
