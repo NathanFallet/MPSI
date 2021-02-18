@@ -16,7 +16,7 @@ def double(x):
 >>> double(3) -> 6
 >>> double("abc") -> abcabc
 
-La fonction double n'a clairement pas été faite pour faire des opérations avec les booléens.
+La fonction double n'a clairement pas été faite pour faire des opérations avec les chaines de charactères.
 
 
 Mais heuresement, Python supporte les annotations de types, permettant d'indiquer à votre IDE (environement de travail) quels types sont neccessaires pour quelles fonctions.

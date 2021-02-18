@@ -4,19 +4,16 @@ from typing import Any, List
 # On définit une fonction StalinSort
 # Cet algorithme fonctionne en supprimant tout les éléments non conformes (d'où le nom).
 # Ceci n'est pas un véritable alogrithme de tri, car l'intégrité de la liste n'est pas conservée. C'est purement une blague.
-def StalinSort(toSort: List[Any]) -> List[Any]:
-    # On effectue une copie de la liste, pour éviter de changer la liste originelle
-    toSortCopy = toSort.copy()
-
+def StalinSort(toSort: List[Any]) -> None:
     # On initialise la valeur précédente à 0, car la valeur précédente n'est pas forcément la valeur i-1
     previous = 0
     # On initialise une liste vide des éléments à supprimer
     toDelete = []
     # On parcours la liste à trier
-    for i in range(len(toSortCopy)):
+    for i in range(len(toSort)):
         # Si l'élément est conforme, il devient le nouveau "modéle"
-        if previous <= toSortCopy[i]:
-            previous = toSortCopy[i]
+        if previous <= toSort[i]:
+            previous = toSort[i]
         # Sinon, il est mis sur la liste de suppresion
         else:
             toDelete.append(i)
@@ -25,13 +22,11 @@ def StalinSort(toSort: List[Any]) -> List[Any]:
     toDelete.reverse()
     # On supprime tout les éléments non-conformes
     for i in toDelete:
-        del toSortCopy[i]
-    
-    # On retourne la liste "triée"
-    return toSortCopy
+        del toSort[i]
 
 # On teste la fonction
 liste = [*range(100)]
 shuffle(liste)
 print(liste)
-print(StalinSort(liste))
+StalinSort(liste)
+print(liste)
