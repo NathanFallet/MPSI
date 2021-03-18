@@ -12,7 +12,7 @@ def balayage(a, N, f):
 # Dichotomie
 def dichotomie(f, a, b, ε):
     while b-a > ε:
-        m = (b-a)/2
+        m = (b+a)/2
         if f(a)*f(m) < 0:
             b = m
         elif f(a)*f(m) > 0:
@@ -20,9 +20,6 @@ def dichotomie(f, a, b, ε):
         else:
             a, b = m, m
     return (a, b)
-
-# Ça marche pas, à inspecter (boucle infinie)
-#print("Dichotomie :\nx^2 - 2 = 0 ssi x ≈", dichotomie(f, 1, 2, 0.0001))
 
 # Secante
 def secante(a, b, f, ε):
@@ -33,6 +30,17 @@ def secante(a, b, f, ε):
         p = f(b) - t * b
         x1 = x0
         x0 = (-p)/t
+    return x1
+
+# Newton
+def f_p(f, x0, h):
+    return (f(x0+h) - f(x0)) / h
+
+def newton(f, x, ε):
+    x0 = x
+    x1 = x + 2 * ε
+    while abs(x1 - x0) > ε:
+        x0, x1 = x0 - f(x0) / f_p(f, x0, 10**(-9)), x0
     return x1
 
 # 1.
