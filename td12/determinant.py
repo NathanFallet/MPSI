@@ -1,5 +1,5 @@
 #
-# Calcul du déterminant d"une matrice pour inverser une matrice
+# Calcul du déterminant d'une matrice pour inverser une matrice
 #
 
 # Afficher une matrice
@@ -134,56 +134,63 @@ def produit(A, B):
     #    C.append(L)
     #return C
 
-# Inversion avec log
+# Inversion d'une matrice
 def inverse(A):
+    d = det(A)
+    if d == 0:
+        return None
+    return multiplier(transp(com(A)), 1/d)
+
+# Inversion avec log
+def inverseLog(A):
     print("Matrice :")
     print_mat(A)
     print("")
 
-    print("Déterminant :")
-    d = det(A)
-    print(d)
+    i = inverse(A)
 
-    if d == 0:
+    if i == None:
         print("Pas inversible")
         return
 
-    print("Inversible ! On continue")
-    print("")
-    
-    print("Comatrice :")
-    co = com(A)
-    print_mat(co)
-    print("")
-
-    print("Transposée :")
-    t = transp(co)
-    print_mat(t)
-    print("")
-
     print("Inverse :")
-    i = multiplier(t, 1/d)
     print_mat(i)
     print("")
 
     print("Produit avec son inverse :")
     p = produit(A, i)
     print_mat(p)
-    print("")
 
 # Tests
-print("---\nMatrice 3x3 :\n---")
-inverse([
-    [1, -1, 2],
-    [2, 1, 1],
-    [3, 2, 2]
-])
-print("\n")
+#print("---\nMatrice 3x3 :\n---")
+#inverseLog([
+#    [1, -1, 2],
+#    [2, 1, 1],
+#    [3, 2, 2]
+#])
+#print("\n")
+#
+#print("---\nMatrice 4x4 :\n---")
+#inverseLog([
+#    [1, 0, 1, 1],
+#    [1, 1, -1, 1],
+#    [2, 1, 0, 1],
+#    [1, 2, 1, 1]
+#])
 
-print("---\nMatrice 4x4 :\n---")
-inverse([
-    [1, 0, 1, 1],
-    [1, 1, -1, 1],
-    [2, 1, 0, 1],
-    [1, 2, 1, 1]
-])
+print("Inverseur de matrice")
+c = True
+A = []
+while c:
+    l = input("Entrez une ligne (vide pour arrêter) : ")
+    if l == "":
+        c = False
+    else:
+        coefs = l.split()
+        A.append([
+            int(coefs[k])
+            for k in range(len(coefs))
+        ])
+
+print("\nRésultat :\n")
+inverseLog(A)
