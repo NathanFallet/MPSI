@@ -12,65 +12,127 @@ def print_mat(A):
 
 # Enlever une ligne et une colonne
 def removeIJ(A, i, j):
-    # On fait une nouvelle matrice
-    B = []
-    for l in range(len(A)):
-        # On enlève la i ème ligne
-        if l != i:
-            L = []
-            for c in range(len(A[l])):
-                # On enlève la j ème colonne
-                if c != j:
-                    # Ajoute le coefficient
-                    L.append(A[l][c])
-            # On ajoute la ligne
-            B.append(L)
+    return [
+        [
+            A[l][c]
+            for c in range(0, len(A[i]))
+            if c != j
+        ]
+        for l in range(0, len(A))
+        if l != i
+    ]
 
-    # Renvoit la matrice sans la ligne/colonne à supprimer
-    return B
+    # On fait une nouvelle matrice
+    #B = []
+    #for l in range(len(A)):
+    #    # On enlève la i ème ligne
+    #    if l != i:
+    #        L = []
+    #        for c in range(len(A[l])):
+    #            # On enlève la j ème colonne
+    #            if c != j:
+    #                # Ajoute le coefficient
+    #                L.append(A[l][c])
+    #        # On ajoute la ligne
+    #        B.append(L)
+    #return B
 
 # Calculer le déterminant
 def det(A):
-    # Cas d"une matrice 1x1
+    # Cas d'une matrice 1x1
     if len(A) == 1:
         return A[0][0]
     
-    somme = 0
-    i = 1 # par exemple
-    for k in range(1, len(A)+1):
-        somme += (-1) ** (i+k) * A[i-1][k-1] * det(removeIJ(A, i-1, k-1))
-    
-    return somme
+    i = 1
+    return sum([
+        (-1) ** (i+k) * A[i-1][k-1] * det(removeIJ(A, i-1, k-1))
+        for k in range(1, len(A)+1)
+    ])
+
+    #somme = 0
+    #i = 1 # par exemple
+    #for k in range(1, len(A)+1):
+    #    somme += (-1) ** (i+k) * A[i-1][k-1] * det(removeIJ(A, i-1, k-1))
+    #
+    #return somme
 
 # Comatrice
 def com(A):
-    B = []
-    for i in range(1, len(A)+1):
-        L = []
-        for j in range(1, len(A[i-1])+1):
-            L.append((-1) ** (i+j) * det(removeIJ(A, i-1, j-1)))
-        B.append(L)
-    return B
+    return [
+        [
+            (-1) ** (i+j) * det(removeIJ(A, i-1, j-1))
+            for j in range(1, len(A[i-1])+1)
+        ]
+        for i in range(1, len(A)+1)
+    ]
+
+    #B = []
+    #for i in range(1, len(A)+1):
+    #    L = []
+    #    for j in range(1, len(A[i-1])+1):
+    #        L.append()
+    #    B.append(L)
+    #return B
 
 # Transposé
 def transp(A):
-    B = []
-    for i in range(1, len(A)+1):
-        L = []
-        for j in range(1, len(A[i-1])+1):
-            L.append(A[j-1][i-1])
-        B.append(L)
-    return B
+    return [
+        [
+            A[j-1][i-1]
+            for j in range(1, len(A[i-1])+1)
+        ]
+        for i in range(1, len(A)+1)
+    ]
 
-# Multiplier la matrice par un cof
+    #B = []
+    #for i in range(1, len(A)+1):
+    #    L = []
+    #    for j in range(1, len(A[i-1])+1):
+    #        L.append(A[j-1][i-1])
+    #    B.append(L)
+    #return B
+
+# Multiplier la matrice par un coef
 def multiplier(A, a):
-    B = []
-    for i in range(1, len(A)+1):
-        L = []
-        for j in range(1, len(A[i-1])+1):
-            L.append(a * A[i-1][j-1])
-        B.append(L)
-    return B
+    return [
+        [
+            a * A[i-1][j-1]
+            for j in range(1, len(A[i-1])+1)
+        ]
+        for i in range(1, len(A)+1)
+    ]
+
+    #B = []
+    #for i in range(1, len(A)+1):
+    #    L = []
+    #    for j in range(1, len(A[i-1])+1):
+    #        L.append(a * A[i-1][j-1])
+    #    B.append(L)
+    #return B
+
+# Produit
+def produit(A, B):
+    return [
+        [
+            sum([
+                A[i][k] * B[k][j]
+                for k in range(0, len(A[i]))
+            ])
+            for j in range(0, len(B))
+        ]
+        for i in range(0, len(A))
+    ]
+
+    #C = []
+    #for i in range(0, len(A)):
+    #    L = []
+    #    for j in range(0, len(B)):
+    #        s = 0
+    #        for k in range(0, len(A[i])):
+    #            s += A[i][k] * B[k][j]
+    #        L.append(s)
+    #    C.append(L)
+    #return C
 
 # Inversion avec log
 def inverse(A):
@@ -102,6 +164,12 @@ def inverse(A):
     print("Inverse :")
     i = multiplier(t, 1/d)
     print_mat(i)
+    print("")
+
+    print("Produit avec son inverse :")
+    p = produit(A, i)
+    print_mat(p)
+    print("")
 
 # Tests
 print("---\nMatrice 3x3 :\n---")
